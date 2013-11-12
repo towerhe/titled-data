@@ -4,9 +4,16 @@ module TitledData
 
     def initialize(raw_data)
       @raw = raw_data
-      @titles, @data = raw_data[0], raw_data[1..-1]
 
-      @rows = raw_data[1..-1].inject([]) { |c, d| c << Row.new(@titles, d) }
+      if (first_row = raw_data.first).is_a? Hash
+        @titles = first_row.keys
+        @data = raw_data.map { |h| h.values }
+        @rows = raw_data.map { |r| Row.new(r) }
+      else
+        @titles, @data = raw_data[0], raw_data[1..-1]
+
+        @rows = raw_data[1..-1].inject([]) { |c, d| c << Row.new(@titles, d) }
+      end
     end
 
     def create_row(values = nil)
