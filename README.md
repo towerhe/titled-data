@@ -1,6 +1,6 @@
-# Titled::Data
+# TitledData
 
-TODO: Write a gem description
+titled-data is a tool to manage a series of data with titles.
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Please check out the specs.
 
 ## Contributing
 
